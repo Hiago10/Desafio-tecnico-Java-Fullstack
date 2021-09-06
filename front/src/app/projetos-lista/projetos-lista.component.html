@@ -1,0 +1,64 @@
+<nav class="navbar navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/">Fábrica de Software</a>
+    </div>
+</nav>
+ <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" [ngStyle]="confirmacao ? {'display': 'block', 'opacity': '1', 'background': 'rgba(0,0,0,0.5)'} : {}">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="confirmacao=false"></button>
+      </div>
+      <div class="modal-body">
+        Tem certeza que deseja excluir?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="excluir()">Sim</button>
+        <button type="button" class="btn btn-secondary" (click)="confirmacao=false">Não</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-lg">
+  <div class="table-header">
+    <h1>Projetos</h1>
+    <a class="btn btn-primary" role="button" routerLink="/projetos/novo">Novo Projeto</a>
+  </div>
+  <hr class="line">
+ 
+ <table class="table table-bordered table-responsive">
+    <thead class="table-secondary">
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col">Descrição</th>
+          <th scope="col">Valor</th>
+          <th scope="col">Data de Início</th>
+          <th scope="col">Data de Encerramento</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let projeto of projetos">
+          <th scope="row">{{ projeto.nome }}</th>
+          <td>{{ projeto.descricao }}</td>
+          <td>R$ {{ projeto.valor }}</td>
+          <td>{{ projeto.data_inicio.split('-').reverse().join('/') }}</td>  
+          <td>{{ projeto.data_encerramento.split('-').reverse().join('/') }}</td>
+          <td class="col-acoes">
+            <button type="button" class="btn btn-primary ic" [routerLink]="['/projetos', projeto.projetoId]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"></path>
+                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"></path>
+                </svg>
+            </button>
+            <button type="button" class="btn btn-primary ic" (click)="confirmacao=true; idExclusao=projeto.projetoId;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"></path>
+                </svg>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+  </table>
+</div>

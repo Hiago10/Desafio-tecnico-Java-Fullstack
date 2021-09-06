@@ -1,0 +1,27 @@
+.table-header {
+    margin: 4rem 0 0 0;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+}
+
+.line {
+    margin: 0 0 2.5rem 0;
+}
+
+.ic {
+    margin: 0 0.2rem !important;
+}
+
+.table {
+    box-shadow: 0px 10px 10px 0px rgb(0 0 0 / 4%);
+    text-align: center !important;
+}
+
+.col-acoes {
+    width: 115px;
+    text-align: center;
+}
+
+
+

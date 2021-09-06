@@ -1,0 +1,37 @@
+<nav class="navbar navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/">Fábrica de Software</a>
+    </div>
+  </nav>
+  <div class="container-lg">
+      <h1 class="table-header">{{id ? 'Editar Projeto' : 'Novo Projeto'}}</h1>
+      <hr class="line">
+      <form class="row g-3" (ngSubmit)="id ? editar($event) : adicionar($event);">
+          <div class="col-md-6">
+              <label for="nomeInput" class="form-label">Nome</label>
+              <input type="text" class="form-control" name="nomeInput" id="nomeInput" value="{{projeto ? projeto.nome : ''}}">
+          </div>
+          <div class="col-md-6">
+            <label for="valorInput" class="form-label">Valor</label>
+            <input type="text" class="form-control" name="valorInput" id="valorInput" value="{{projeto ? projeto.valor : ''}}">
+          </div>
+          <div class="col-md-6">
+              <label for="dataIniInput" class="form-label">Data de Início</label>
+              <input type="date" class="form-control" name="dataIniInput" id="dataIniInput" value="{{projeto ? projeto.data_inicio : ''}}">
+            </div>
+            <div class="col-md-6">
+              <label for="dataFinInput" class="form-label">Data de encerramento</label>
+              <input type="date" class="form-control" name="dataFinInput" id="dataFinInput" value="{{projeto ? projeto.data_encerramento : ''}}">
+            </div>
+          <div class="mb-3">
+              <label for="descricaoInput" class="form-label">Descrição</label>
+              <textarea class="form-control" name="descricaoInput" id="descricaoInput" rows="3">{{projeto ? projeto.descricao : ''}}</textarea>
+          </div>
+          <div class="col-auto">
+              <button type="submit" class="btn btn-primary">Save</button>
+            </div>   
+          <div class="col-auto">
+              <a class="btn btn-secondary" role="button" routerLink="/projetos">Voltar</a>
+          </div>
+      </form>
+  </div>
