@@ -31,3 +31,7 @@
 **5**. Executar o servidor 
 
 `> npm run start`
+
+**6**. Abrir navegador
+
+`> localhost:4200`
